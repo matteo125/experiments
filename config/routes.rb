@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :to_dos
+  root 'to_dos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
