@@ -23,6 +23,20 @@ Things you may want to cover:
 
 * ...
 
+TEST BACKEND: http://www.todobackend.com/specs/index.html?https://teo-experiments.herokuapp.com
+
+reve documentation:
+
+pushare un branch diverso da master:
+git push heroku yourbranch:master
+
+far andare le migrate su heroku:
+heroku run:detached rake db:migrate --app teo-experiments
+
+css su heroku se non funzionano:
+IN LOCALE: bundle exec rake assets:precompile
+git status, add, commit, push e poi
+git push heroku master
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
