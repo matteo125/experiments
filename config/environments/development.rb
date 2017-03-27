@@ -23,7 +23,7 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   #letter opener
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    # @user.send_welcome_email
   end
 
   # GET /users/1/edit
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+        @user.send_welcome_email
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

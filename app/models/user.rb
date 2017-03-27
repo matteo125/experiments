@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
 end
