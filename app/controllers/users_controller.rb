@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    # @user.send_welcome_email
   end
 
   # GET /users/1/edit
