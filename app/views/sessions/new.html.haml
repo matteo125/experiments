@@ -1,2 +1,19 @@
-%h1 Sessions#new
-%p Find me in app/views/sessions/new.html.erb
+- provide(:title, "Log in")
+%h1.text-center Log In
+
+.container
+  .col-md-6.col-md-offset-3
+    = form_for(:session, url: login_path) do |f|
+      .input
+        = f.label :email
+        %br
+        = f.email_field :email, class: "form-control"
+      .input
+        = f.label :password
+        %br
+        = f.text_field :password, class: "form-control"
+      .input
+        = f.submit 'Log in', class: "btn btn-primary submit-button"
+    %p
+      Sei un nuovo utente?
+      = link_to 'Signup', signup_path

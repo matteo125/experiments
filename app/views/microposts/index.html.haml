@@ -9,6 +9,7 @@
   %tbody
     - @microposts.each do |micropost|
       %tr
+        %td= micropost.title
         %td= micropost.content
         %td= micropost.user_id
         %td= link_to 'Show', micropost

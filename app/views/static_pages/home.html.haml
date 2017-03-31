@@ -2,18 +2,19 @@
   .col-md-12
     .jumbotron
       .container
-        %h1 Welcome to the Kindom of DjTeo
-        %p
-          This is the DjTeo Website. Here you ken find a lot of musical succes of this immense artist.
-        = link_to "Signup now!", signup_path, class: "btn btn-lg btn-primary"
-  .col-md-12
+        .col-md-12
+          %h1 Welcome to the Kindom of DjTeo
+          %p
+            This is the DjTeo Website. Here you ken find a lot of musical succes of this immense artist.
+          = link_to "Signup now!", signup_path, class: "btn btn-lg btn-primary"
+  .container
     .col-md-4
       .thumbnail
         = image_tag("/images/")
         .caption
-          %h3 Notte a Montecarlo
+          - @micropost = Micropost.last
+          %h3= @micropost.title
           %p
-            - @micropost = Micropost.last
             = @micropost.content
           = link_to "Discover More", @micropost
     .col-md-4
@@ -27,6 +28,6 @@
       .thumbnail
         = image_tag("/images/")
         .caption
-          %h3 Notte a Nizza
+          %h3 Una notte al principato
           %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
           = link_to "Discover More", @micropost
