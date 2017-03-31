@@ -12,19 +12,21 @@
         = image_tag("/images/")
         .caption
           %h3 Notte a Montecarlo
-          %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
-          = link_to "Discover More", class: "btn btn-primary"
+          %p
+            - @micropost = Micropost.last
+            = @micropost.content
+          = link_to "Discover More", @micropost
     .col-md-4
       .thumbnail
         = image_tag("/images/")
         .caption
-          %h3 Notte a Montecarlo
+          %h3 Notte a Villafranca Marittima
           %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
-          = link_to "Discover More", class: "btn btn-primary"
+          = link_to "Discover More", @micropost
     .col-md-4
       .thumbnail
         = image_tag("/images/")
         .caption
-          %h3 Notte a Montecarlo
+          %h3 Notte a Nizza
           %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
-          = link_to "Discover More", class: "btn btn-primary"
+          = link_to "Discover More", @micropost
