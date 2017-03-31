@@ -1,1 +1,7 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "static_pages";
+@import "users";
+@import "sessions";
+@import "microposts";
