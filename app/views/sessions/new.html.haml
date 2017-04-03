@@ -1,8 +1,9 @@
 - provide(:title, "Log in")
 %h1.text-center Log In
-
 .container
   .col-md-6.col-md-offset-3
+    - if notice.present?
+      %p.alert.alert-danger=notice
     = form_for(:session, url: login_path) do |f|
       .input
         = f.label :email

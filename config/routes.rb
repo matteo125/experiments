@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   resources :microposts
-  resources :users, only: [:new, :create, :edit, :destroy]
+  resources :users
+  # only: [:new, :create, :edit, :destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
