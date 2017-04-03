@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash.now[:notice] = 'Svegliarsi hai sbagliato la password o email'
+      flash.now[:notice] = 'Si ma svegliarsi dai. Hai sbagliato la password o email'
       render 'new'
     end
   end
