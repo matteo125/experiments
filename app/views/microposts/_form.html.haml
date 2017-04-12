@@ -7,17 +7,17 @@
       %ul
         - @micropost.errors.full_messages.each do |message|
           %li= message
-  .field
+  .input
     = f.label :title
     %br
-    = f.text_area :title
-  .field
+    = f.text_field :title, class: "form-control"
+  .input
     = f.label :content
     %br
-    = f.text_area :content
-  .field
-    = f.label :user_id
-    %br
-    = f.number_field :user_id
-  .actions
-    = f.submit
+    = f.text_area :content, class: "form-control"
+  -# .field
+  -#   = f.label :user_id
+  -#   %br
+  -#   = f.number_field :user_id
+  .input
+    = f.submit 'Create post', class: "btn btn-primary submit-button"

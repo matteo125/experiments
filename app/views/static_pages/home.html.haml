@@ -2,7 +2,7 @@
   .col-md-12
     .jumbotron
       .container
-        .col-md-12
+        .col-md-12.text-center
           %h1 Welcome to the Kindom of DjTeo
           %p
             This is the DjTeo Website. Here you ken find a lot of musical succes of this immense artist.
@@ -32,3 +32,5 @@
           %h3 Una notte al principato
           %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
           = link_to "Discover More", @micropost
+    .col-md-12.text-right
+      = link_to "All posts", microposts_path
