@@ -7,26 +7,22 @@
     = link_to 'Help', help_path, class: "item"
     .right.menu
       - if logged_in?
-        .browse.item
-          .text
+        .ui.pointing.dropdown.link.item
+          %span.text
             = @current_user.name
           %i.dropdown.icon
-        .ui.fluid.popup
-          .ui.four.column.relaxed.equal.height.divided.grid
-            .column
-              %h4 Heading Level 4
-              .ui.link.list
+          .menu
+            .header Scegli
+            .item
+              %i.dropdown.icon
+              %span.text BOH
+              .left.menu
                 .item
                   = link_to 'Your posts', microposts_path
+                .divider
                 .item
                   = link_to 'Logout', logout_path, method: :delete
-            .column
-              %h4 Heading Level 4
-              .ui.link.list
-                .item
-                  = link_to 'Your posts', microposts_path
-                .item
-                  = link_to 'Logout', logout_path, method: :delete
+
       - else
         = link_to 'Login', login_path, class: "ui item"
         -# {href: "#", class: "ui dropdown", data: {toggle: "dropdown"}}
