@@ -1,28 +1,22 @@
 %header
-  .ui.secondary.pointing.menu
-    = image_tag("/images/")
-    = link_to 'Home', root_path, class: "item"
-    = link_to 'About', about_path, class: "item"
-    = link_to 'Contact', contact_path, class: "item"
-    = link_to 'Help', help_path, class: "item"
-    .right.menu
-      - if logged_in?
-        .ui.pointing.dropdown.link.item
-          %span.text
-            = @current_user.name
-          %i.dropdown.icon
-          .menu
-            .header Scegli
-            .item
-              %i.dropdown.icon
-              %span.text BOH
-              .left.menu
-                .item
-                  = link_to 'Your posts', microposts_path
-                .divider
-                .item
-                  = link_to 'Logout', logout_path, method: :delete
+  .ui.container
+    .ui.secondary.pointing.menu
+      = image_tag("/images/")
+      = link_to 'Home', root_path, class: "item"
+      = link_to 'About', about_path, class: "item"
+      = link_to 'Contact', contact_path, class: "item"
+      = link_to 'Help', help_path, class: "item"
+      .right.menu
+        - if logged_in?
+          .ui.simple.dropdown.item
+            %span.text
+              = @current_user.name
+            %i.dropdown.icon
+            .menu
+              .header Testa di cazzo
+              = link_to 'Your posts', microposts_path, class: "item"
+              .divider
+              = link_to 'Logout', logout_path, method: :delete, class: "item"
 
-      - else
-        = link_to 'Login', login_path, class: "ui item"
-        -# {href: "#", class: "ui dropdown", data: {toggle: "dropdown"}}
+        - else
+          = link_to 'Login', login_path, class: "ui item"

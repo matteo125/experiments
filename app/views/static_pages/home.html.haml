@@ -1,15 +1,14 @@
-.row
-  .col-md-12
-    .jumbotron
-      .container
-        .col-md-12.text-center
-          %h1 Welcome to the Kindom of DjTeo
-          %p
-            This is the DjTeo Website. Here you ken find a lot of musical succes of this immense artist.
-          = link_to "Signup now!", signup_path, class: "btn btn-lg btn-primary"
-  -# mostrare i post piu popolari. USARE il campo views dei micropost
-  .container
-    .col-md-4
+.ui.vertical.masthead.center.aligned.segment
+  .ui.text.container
+    %h1.ui.header Welcome to the Kindom of DjTeo
+    %p
+      This is the DjTeo Website. Here you ken find a lot of musical succes of this immense artist.
+    = link_to "Signup now!", signup_path, class: "ui huge primary button"
+    -# mostrare i post piu popolari. USARE il campo views dei micropost
+
+.ui.three.column.divided.grid
+  .row
+    .column
       .thumbnail
         = image_tag("/images/")
         .caption
@@ -18,19 +17,20 @@
           %p
             = @micropost.content
           = link_to "Discover More", @micropost
-    .col-md-4
+    .column
       .thumbnail
         = image_tag("/images/")
         .caption
           %h3 Notte a Villafranca Marittima
           %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
           = link_to "Discover More", @micropost
-    .col-md-4
+    .column
       .thumbnail
         = image_tag("/images/")
         .caption
           %h3 Una notte al principato
           %p Verstappen, Ricciardo e Vettel ricordano DjTeo così...
           = link_to "Discover More", @micropost
-    .col-md-12.text-right
+  .row
+    .column
       = link_to "All posts", microposts_path

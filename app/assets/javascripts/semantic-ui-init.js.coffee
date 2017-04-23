@@ -1,7 +1,6 @@
 $(document).on 'turbolinks:load', ->
-  # dropdown
+  # Init all dropdown on the page
   $('.ui.dropdown').dropdown()
-  $('.menu.browse').popup()
   # Init all accordion on the page
   $('.ui.accordion').accordion()
   # Init main-menu dropown with trigger on hover event
@@ -20,5 +19,4 @@ $(document).on 'turbolinks:load', ->
   # dropdown selects:
   $('select.dropdown').dropdown(placeholder: false)
   $('.ui.radio.checkbox').checkbox()
-  $('.ui.accordion').accordion()
   $(document).trigger 'semantic-ui:after-init'
