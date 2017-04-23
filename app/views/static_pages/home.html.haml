@@ -3,7 +3,12 @@
     %h1.ui.header Welcome to the Kindom of DjTeo
     %p
       This is the DjTeo Website. Here you ken find a lot of musical succes of this immense artist.
-    = link_to "Signup now!", signup_path, class: "ui huge primary button"
+    -# = link_to "Signup now!", signup_path, class: "ui huge primary button"
+    = link_to signup_path do
+      .ui.animated.huge.primary.button
+        .visible.content Signup now!
+        .hidden.content
+          %i.right.sign.in.icon
     -# mostrare i post piu popolari. USARE il campo views dei micropost
 
 .ui.three.column.divided.grid

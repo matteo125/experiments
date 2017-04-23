@@ -1,6 +1,7 @@
-.ui.middle.aligned.center.aligned.grid
-  .column
+.ui.middle.aligned.center.aligned.grid.sign-form
+  .column.main-container
     %h2.ui.teal.image.header
       .content Sign up
     = render 'form'
-    -# = link_to 'Back', users_path
+
+    = link_to 'Back', root_path, class: "back"
