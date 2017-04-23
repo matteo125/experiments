@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  layout "basic", :only => [:new, :create]
+
   # GET /users.json
   def index
     @users = User.all
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
         redirect_to @user, notice: 'User was successfully created.'
         @user.send_welcome_email
       else
-        render :new
+        render 'new'
       end
   end
 

@@ -1,27 +1,29 @@
-= form_for @user, html: {class: ""} do |f|
-  - if @user.errors.any?
-    .alert.alert-danger
-      %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being saved:
-      %ul
-        - @user.errors.full_messages.each do |message|
-          %li= message
-  .input
-    = f.label :name
-    %br
-    = f.text_field :name, class: "form-control"
-  .input
-    = f.label :email
-    %br
-    = f.text_field :email, class: "form-control"
-  .input
-    = f.label :password
-    %br
-    = f.password_field :password, class: "form-control"
-  .input
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation, class: "form-control"
-  .input
-    = f.submit 'Submit', class: "btn btn-primary submit-button"
+= form_for @user, html: {class: "ui large form"} do |f|
+  .ui.stacked.segment
+    .field
+      .ui.left.icon.input
+        %i.user.icon
+        = f.text_field :name, placeholder: "Name"
+    .field
+      .ui.left.icon.input
+        %i.at.icon
+        = f.text_field :email, placeholder: "Email"
+    .field
+      .ui.left.icon.input
+        %i.lock.icon
+        = f.password_field :password, placeholder: "password"
+    .field
+      .ui.left.icon.input
+        %i.lock.icon
+        = f.password_field :password_confirmation, placeholder: "password confirmation"
+    .field
+      = f.submit 'Submit', class: "ui fluid large teal submit button"
+
+- if @user.errors.any?
+  .ui.error.message
+    %h4
+      = pluralize(@user.errors.count, "error")
+      prohibited this user from being saved:
+    %ul.list
+      - @user.errors.full_messages.each do |message|
+        %li= message
