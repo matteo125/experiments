@@ -1,22 +1,30 @@
-- @microposts.each do |micropost|
-  .ui.stacked.teal.segments.posts
-    .ui.segment
-      .item
-        %span.ui.pink.right.ribbon.label
-          = micropost.user.name
-        %span.ui.header
+.ui.stacked.three.special.cards
+  - @microposts.each do |micropost|
+    .card
+      .blurring.dimmable.image
+        .ui.inverted.dimmer
+          .content
+            .center
+              = link_to 'Go', micropost, class: "ui huge teal button"
+        = image_tag("https://semantic-ui.com/images/avatar/large/elliot.jpg")
+      .content
+        %span.header
           = micropost.title
-      %p= simple_format(micropost.content)
-      .ui.divider
+        .meta
+          = micropost.user.name
+        .description
+          %p= truncate(micropost.content, :length => 100)
+      .extra.content
+        .ui.label
+          Created at:
+          .detail
+            = micropost.created_at.to_formatted_s(:short)
 
-      .ui.label
-        Pubblicato il:
-        .detail
-          = micropost.created_at.to_formatted_s(:short)
       - if logged_in? && micropost.user_id == current_user.id
-        .control-button
+        .extra.content
           = link_to 'Show', micropost, class: "mini ui basic button"
           = link_to 'Edit', edit_micropost_path(micropost), class: "mini ui basic button"
           = link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' }, class: "mini ui basic red button"
 
-= link_to 'New Micropost', new_micropost_path
+.margin-30
+  = link_to 'New Micropost', new_micropost_path

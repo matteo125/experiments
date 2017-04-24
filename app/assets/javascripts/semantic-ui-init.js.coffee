@@ -11,6 +11,8 @@ $(document).on 'turbolinks:load', ->
     # .sidebar 'attach events', '.pushable .main-menu > .item', 'hide'
   # Init tabs
   # $('.menu .item[data-tab]').tab()
+  #cards
+  $('.special.cards .image').dimmer({ on: 'hover' });
   # Init messages
   $('.message .close').click -> $(this).closest('.message').transition('fade')
   # Init datepickers for date fields (using calendar semantic-ui plugin, see https://github.com/mdehoog/Semantic-UI-Calendar)
