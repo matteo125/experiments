@@ -1,20 +1,22 @@
--# %p#notice= notice
-.container
-  %h1 Microposts
-  - @microposts.each do |micropost|
-    .panel.panel-default
-      .panel-heading
-        %h3.panel-title
+- @microposts.each do |micropost|
+  .ui.stacked.teal.segments.posts
+    .ui.segment
+      .item
+        %span.ui.pink.right.ribbon.label
+          = micropost.user.name
+        %span.ui.header
           = micropost.title
-      .panel-body
-        = micropost.content
-      .panel-footer
-        Author:
-        = micropost.user.name
-        - if logged_in? && micropost.user_id == current_user.id
-          .control-button
-            = link_to 'Show', micropost, class: "btn btn-xs btn-primary"
-            = link_to 'Edit', edit_micropost_path(micropost), class: "btn btn-xs btn-success"
-            = link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger"
+      %p= simple_format(micropost.content)
+      .ui.divider
 
-  = link_to 'New Micropost', new_micropost_path
+      .ui.label
+        Pubblicato il:
+        .detail
+          = micropost.created_at.to_formatted_s(:short)
+      - if logged_in? && micropost.user_id == current_user.id
+        .control-button
+          = link_to 'Show', micropost, class: "mini ui basic button"
+          = link_to 'Edit', edit_micropost_path(micropost), class: "mini ui basic button"
+          = link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' }, class: "mini ui basic red button"
+
+= link_to 'New Micropost', new_micropost_path

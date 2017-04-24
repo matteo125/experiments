@@ -19,7 +19,7 @@
             - @micropost = Micropost.last
             %h3= @micropost.title
             %p
-              = @micropost.content
+              = truncate(@micropost.content, :length => 50)
             = link_to "Discover More", @micropost
       .column
         .thumbnail

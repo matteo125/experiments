@@ -1,5 +1,6 @@
-%h1 Editing Micropost
+%h2.ui.header Editing micropost
 = render 'form'
-= link_to 'Show', @micropost
-|
-\#{link_to 'Back', microposts_path}
+.back
+  = link_to 'Show', @micropost
+  |
+  \#{link_to 'Back', microposts_path}

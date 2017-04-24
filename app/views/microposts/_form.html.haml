@@ -1,23 +1,18 @@
-= form_for(@micropost) do |f|
+= form_for @micropost, html: {class: "ui large form"} do |f|
   - if @micropost.errors.any?
-    #error_explanation
+    .ui.error.message
       %h2
         = pluralize(@micropost.errors.count, "error")
         prohibited this micropost from being saved:
-      %ul
+      %ul.list
         - @micropost.errors.full_messages.each do |message|
           %li= message
-  .input
-    = f.label :title
-    %br
-    = f.text_field :title, class: "form-control"
-  .input
-    = f.label :content
-    %br
-    = f.text_area :content, class: "form-control"
-  -# .field
-  -#   = f.label :user_id
-  -#   %br
-  -#   = f.number_field :user_id
-  .input
-    = f.submit 'Create post', class: "btn btn-primary submit-button"
+  .ui.stacked.segment
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :content
+      = f.text_area :content
+    .field
+      = f.submit 'Create post', class: "ui teal button"
