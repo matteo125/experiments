@@ -20,11 +20,13 @@
           .detail
             = micropost.created_at.to_formatted_s(:short)
 
-      - if logged_in? && micropost.user_id == current_user.id
-        .extra.content
-          = link_to 'Show', micropost, class: "mini ui basic button"
-          = link_to 'Edit', edit_micropost_path(micropost), class: "mini ui basic button"
-          = link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' }, class: "mini ui basic red button"
+        - if logged_in? && micropost.user_id == current_user.id
+          %span.align-right
+            = link_to 'Show', micropost, class: "ui grey"
+            |
+            = link_to 'Edit', edit_micropost_path(micropost), class: "ui grey"
+            |
+            = link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' }, class: "ui danger"
 
 .margin-30
   = link_to 'New Micropost', new_micropost_path
